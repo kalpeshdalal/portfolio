@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+body {
+    background-color: #1a202c; /* This is your dark primary color */
+    color: #f7fafc;
+    font-family: 'Montserrat', sans-serif; /* Optional: A nice font */
+}
