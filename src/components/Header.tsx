@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import HireMeModal from "./HireMeModal";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -11,10 +12,19 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    // Close mobile menu if it's open
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+
 
   return (
     <>
@@ -29,7 +39,7 @@ export default function Header() {
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold text-primary"
           >
-            <a href="#">KD.</a>
+            <a href="#home">KD.</a>
 
           </motion.div>
 
@@ -55,7 +65,7 @@ export default function Header() {
             ))}
           </nav>
           <motion.a
-            href="#contact"
+            onClick={openModal}
             whileHover={{
               scale: 1.05,
               backgroundColor: "rgb(var(--color-primary) / 0.1)",
@@ -135,8 +145,7 @@ export default function Header() {
                 </a>
               ))}
               <motion.a
-                href="#contact"
-                onClick={toggleMenu}
+                onClick={() => { openModal(); toggleMenu(); }}
                 whileHover={{
                   scale: 1.05,
                   backgroundColor: "rgb(var(--color-primary) / 0.1)",
@@ -151,6 +160,8 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence >
+      <HireMeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </>
   );
 }

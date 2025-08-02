@@ -1,17 +1,44 @@
-export const skills = [
-  { name: "React / Next.js", level: 95 },
-  { name: "Node.js / Express", level: 90 },
-  { name: "TypeScript", level: 93 },
-  { name: "Tailwind CSS", level: 92 },
-  { name: "PostgreSQL", level: 88 },
-  { name: "MongoDB", level: 88 },
-  { name: "Web3 / Ether.js", level: 80 },
-  { name: "Python", level: 85 },
-  { name: "Redux", level: 90 },
-  { name: "GIT", level: 95 },
-  { name: "AWS", level: 75 },
-  { name: "Firebase", level: 80 },
-  { name: "HTML5/CSS3", level: 95 },
-  { name: "RESTful APIs", level: 92 },
-  { name: "MySQL", level: 87 },
+export const skillCategories = [
+    {
+        title: "Frontend",
+        icon: "⚛️",
+        skills: [
+            { name: "React.js", level: 95, icon: "⚛️" },
+            { name: "Next.js", level: 90, icon: "▲" },
+            { name: "Redux", level: 88, icon: "🔄" },
+            { name: "HTML5", level: 95, icon: "🌐" },
+            { name: "CSS3", level: 92, icon: "🎨" },
+            { name: "Tailwind", level: 90, icon: "💨" },
+            { name: "Material-UI", level: 85, icon: "🎯" },
+            { name: "Ant Design", level: 82, icon: "🐜" }
+        ]
+    },
+    {
+        title: "Backend",
+        icon: "⚙️",
+        skills: [
+            { name: "Node.js", level: 92, icon: "🟢" },
+            { name: "Express.js", level: 90, icon: "🚀" },
+            { name: "Python", level: 88, icon: "🐍" },
+            { name: "FastAPI", level: 85, icon: "⚡" },
+            { name: "RESTful APIs", level: 93, icon: "🔗" },
+            { name: "MySQL", level: 87, icon: "🗄️" },
+            { name: "PostgreSQL", level: 89, icon: "🐘" },
+            { name: "MongoDB", level: 86, icon: "🍃" }
+        ]
+    },
+    {
+        title: "DevOps & Tools",
+        icon: "🚀",
+        skills: [
+            { name: "MERN Stack", level: 91, icon: "📚" },
+            { name: "Blockchain", level: 78, icon: "⛓️" },
+            { name: "Web3", level: 80, icon: "🌍" },
+            { name: "GIT", level: 95, icon: "🔀" },
+            { name: "AWS", level: 82, icon: "☁️" },
+            { name: "Docker", level: 85, icon: "🐳" },
+            { name: "Testing", level: 85, icon: "🧪" },
+            { name: "Firebase", level: 88, icon: "🔥" }
+        ]
+    }
 ];

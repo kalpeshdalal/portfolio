@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../lib/variants";
+import { Helmet } from "react-helmet-async"; 
 
 export default function About() {
   return (
     <section id="about" className="py-28 px-6 overflow-hidden">
+       <Helmet>
+            <title>About Me | Kalpesh Dalal</title>
+            <meta name="description" content="With over 2.5 years of hands-on experience, I have a proven track record of designing, developing, and deploying robust, scalable, and secure web applications." />
+        </Helmet>
       <motion.div
         variants={staggerContainer}
         initial="hidden"

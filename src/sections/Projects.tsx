@@ -1,14 +1,18 @@
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { projects } from "../data/projects";
-
+import { Helmet } from "react-helmet-async";
 export default function Projects() {
   return (
     <section id="projects" className="py-32 px-6">
-      <h2 className="mb-12 text-center text-3xl font-bold">
+      <Helmet>
+        <title>Projects Showcase | Kalpesh Dalal</title>
+        <meta name="description" content="A showcase of my projects, including corporate websites, fintech apps, NFT marketplaces, and e-commerce platforms." />
+      </Helmet>
+      <h2 className="mb-16 text-center text-4xl font-bold">
         Projects <span className="text-[rgb(var(--color-primary))]">Showcase</span>
       </h2>
-      <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl gap-12 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((p, i) => (
           <motion.div
             key={i}
@@ -17,7 +21,7 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
-            <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8}>
+            <Tilt scale={1.1} tiltMaxAngleX={30} tiltMaxAngleY={30} glareEnable={true} glareMaxOpacity={0.5} glareBorderRadius="16px" glareColor="rgb(var(--color-primary))" >
               <a
                 href={p.url}
                 target="_blank"

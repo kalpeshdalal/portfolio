@@ -1,32 +1,93 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import HireMeModal from "../components/HireMeModal";
+import { Helmet } from "react-helmet-async";
+// Define animation variants for a cleaner component structure
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Time delay between each child animation
+    },
+  },
+};
+
+const textVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      damping: 15,
+      stiffness: 100,
+    },
+  },
+};
+
+const iconVariants = {
+  hidden: { scale: 0, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+};
 
 export default function Contact() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
   return (
     <section className="py-32 px-6">
+      {/* Main container to orchestrate the animations */}
+      <Helmet>
+        <title>Contact Me | Kalpesh Dalal</title>
+        <meta name="description" content="Let's connect! I'm currently accepting freelance and full-time opportunities. You can reach out to me via email or connect with me on GitHub and LinkedIn." />
+      </Helmet>
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
         className="mx-auto max-w-xl text-center"
       >
-        <h2 className="text-4xl font-bold">
+        {/* Animated Heading */}
+        <motion.h2 variants={textVariants} className="text-4xl font-bold">
           Let’s <span className="text-[rgb(var(--color-primary))]">Connect</span>
-        </h2>
-        <p className="my-4 text-gray-300">
+        </motion.h2>
+
+        {/* Animated Paragraph */}
+        <motion.p variants={textVariants} className="my-4 text-gray-300">
           I’m currently accepting freelance & full-time opportunities.
-        </p>
-        <div className="flex items-center justify-center gap-4">
+        </motion.p>
+
+        {/* Animated container for social icons, also staggered */}
+        <motion.div
+          variants={containerVariants}
+          className="flex items-center justify-center gap-4"
+        >
+          {/* Animated Icons with enhanced hover effect */}
           <motion.a
-            whileHover={{ scale: 1.1 }}
+            variants={iconVariants}
+            whileHover={{ scale: 1.15, y: -5 }}
             whileTap={{ scale: 0.9 }}
-            href="mailto:kalpeshdalal305@gmail.com"
-            className="rounded-full bg-[rgb(var(--color-primary))] p-4 text-black"
+            onClick={openModal}
+            className="rounded-full p-4 text-white"
           >
             <FiMail size={24} />
           </motion.a>
+
           <motion.a
-            whileHover={{ scale: 1.1 }}
+            variants={iconVariants}
+            whileHover={{ scale: 1.15, y: -5 }}
             whileTap={{ scale: 0.9 }}
             href="https://github.com/kalpeshdalal"
             target="_blank"
@@ -34,8 +95,10 @@ export default function Contact() {
           >
             <FiGithub size={24} />
           </motion.a>
+
           <motion.a
-            whileHover={{ scale: 1.1 }}
+            variants={iconVariants}
+            whileHover={{ scale: 1.15, y: -5 }}
             whileTap={{ scale: 0.9 }}
             href="https://linkedin.com/in/kalpesh-dalal"
             target="_blank"
@@ -43,8 +106,10 @@ export default function Contact() {
           >
             <FiLinkedin size={24} />
           </motion.a>
-        </div>
+        </motion.div>
       </motion.div>
+      <HireMeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-
+import { Helmet } from "react-helmet-async";
 const descriptions = [
   "A passionate Full-Stack Developer with a strong interest in Artificial Intelligence. I specialize in building intelligent, data-driven web applications that leverage the power of AI to deliver personalized and cutting-edge user experiences.",
   "Expert in the MERN stack and modern frontend frameworks, with a growing proficiency in AI and Machine Learning. I enjoy integrating AI models into applications to create smarter, more efficient, and interactive solutions.",
@@ -35,7 +35,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center text-center px-6">
+    <section id="home" className="min-h-screen flex items-center justify-center text-center px-6">
+      <Helmet>
+        <title>Kalpesh Dalal | Full-Stack Developer</title>
+        <meta name="description" content="A passionate Full-Stack Developer with a strong interest in Artificial Intelligence. I specialize in building intelligent, data-driven web applications that leverage the power of AI." />
+      </Helmet>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
