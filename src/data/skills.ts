@@ -1,0 +1,17 @@
+export const skills = [
+  { name: "React / Next.js", level: 95 },
+  { name: "Node.js / Express", level: 90 },
+  { name: "TypeScript", level: 93 },
+  { name: "Tailwind CSS", level: 92 },
+  { name: "PostgreSQL", level: 88 },
+  { name: "MongoDB", level: 88 },
+  { name: "Web3 / Ether.js", level: 80 },
+  { name: "Python", level: 85 },
+  { name: "Redux", level: 90 },
+  { name: "GIT", level: 95 },
+  { name: "AWS", level: 75 },
+  { name: "Firebase", level: 80 },
+  { name: "HTML5/CSS3", level: 95 },
+  { name: "RESTful APIs", level: 92 },
+  { name: "MySQL", level: 87 },
+];

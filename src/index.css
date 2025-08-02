@@ -1,7 +1,25 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animated";
 
+@layer base {
+  :root {
+    --color-bg: 10 10 10;
+    --color-surface: 28 28 28 / 0.7;
+    --color-primary: 0 245 212;
+    --color-secondary: 239 68 68;
+    --color-text: 235 235 235;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+}
+
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
 body {
-    background-color: #1a202c; /* This is your dark primary color */
-    color: #f7fafc;
-    font-family: 'Montserrat', sans-serif; /* Optional: A nice font */
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
+  font-family: "Inter", sans-serif;
 }

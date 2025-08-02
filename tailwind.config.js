@@ -4,17 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1a202c",
-        secondary: "#2d3748",
-        accent: "#E53E3E", // A crimson-like red
+        primary: "rgb(var(--color-primary))",
+        secondary: "rgb(var(--color-secondary))",
+        accent: "rgb(var(--color-accent))",
+        surface: "rgb(var(--color-surface))",
+        text: "rgb(var(--color-text))",
       },
       animation: {
-        'fade-in-down': 'fade-in-down 0.5s ease-out forwards',
-        'slide-in-left': 'slide-in-left 0.5s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+        'slide-in-left': 'slide-in-left 0.8s ease-out forwards',
       },
       keyframes: {
-        'fade-in-down': {
-          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'slide-in-left': {
@@ -24,5 +26,5 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 };
